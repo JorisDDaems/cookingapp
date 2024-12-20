@@ -1,0 +1,494 @@
+@import './styles/components/HeroSection.css';
+@import './styles/components/FeaturedRecipes.css';
+@import './styles/components/Categories.css';
+@import './styles/pages/Pages.css';
+@import './styles/pages/ContactAbout.css';
+@import './styles/components/Footer.css';
+@import './styles/pages/Products.css';
+
+/* Basis reset en typografie */
+:root {
+  --primary-color: #9B6B4E;
+  --primary-color-dark: #7d563e;
+  --text-color: #2C1810;
+  --background-color: #FDF9F7;
+  --accent-color: #D4A373;
+  --border-color: #E9DCCD;
+  --max-width: 1400px;
+  --header-height: 100px;
+  --font-primary: 'Lora', Georgia, serif;
+  --font-secondary: 'Source Sans Pro', sans-serif;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.8;
+}
+
+/* Layout */
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+/* Header */
+.site-header {
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.tagline {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  color: var(--text-color);
+  font-style: italic;
+}
+
+/* Navigation */
+.main-nav ul {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.main-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hero Section */
+.hero-section {
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.hero-title {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-secondary);
+}
+
+/* Recipe Grid */
+.recipes-section {
+  padding: 6rem 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 3rem;
+  padding: 0 2rem;
+}
+
+.recipe-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-8px);
+}
+
+.recipe-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.recipe-content {
+  padding: 2rem;
+}
+
+.recipe-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.recipe-excerpt {
+  font-family: var(--font-secondary);
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .recipes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer */
+.site-footer {
+  background: var(--footer-bg);
+  color: white;
+  padding: 4rem 0 2rem;
+  margin-top: 4rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.footer-section h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section a {
+  color: #dfe6e9;
+  text-decoration: none;
+  line-height: 2;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: var(--primary-color);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.875rem;
+  color: #dfe6e9;
+}
+
+/* Utility Classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Voeg deze stijlen toe aan je bestaande CSS */
+
+.newsletter-bar {
+  background-color: var(--primary-color);
+  padding: 0.75rem 0;
+  color: white;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+}
+
+.newsletter-form button {
+  padding: 0.5rem 1.5rem;
+  background: var(--text-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #1a0f0a;
+}
+
+.newsletter-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.subscribe-message {
+  display: block;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-family: var(--font-secondary);
+}
+
+/* Update de header-container margin */
+.header-container {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .newsletter-form {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+  }
+}
+
+/* Voeg deze media queries toe aan het einde van App.css */
+
+@media (max-width: 1024px) {
+  :root {
+    --header-height: 80px;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .logo h1 {
+    font-size: 2rem;
+  }
+
+  .main-nav {
+    width: 100%;
+    display: none;
+  }
+
+  .main-nav.open {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .newsletter-bar {
+    padding: 1rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+  }
+}
+
+/* Voeg deze stijlen toe voor betere touch interactie */
+@media (hover: none) {
+  .featured-card,
+  .category-card {
+    transform: none !important;
+  }
+
+  .featured-card:active,
+  .category-card:active {
+    opacity: 0.9;
+  }
+
+  .main-nav a::after {
+    display: none;
+  }
+
+  button {
+    padding: 1rem !important; /* Grotere touch targets */
+  }
+
+  input {
+    font-size: 16px !important; /* Voorkom iOS zoom bij focus */
+  }
+}
+
+/* Voeg toe aan de bestaande navigatie stijlen */
+.main-nav a.active {
+  color: var(--primary-color);
+}
+
+.main-nav a.active::after {
+  transform: scaleX(1);
+}
+
+/* Logo link styling */
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo a:hover {
+  color: var(--primary-color);
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px; /* Adjust width as needed */
+}
+
+.search-form button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #218838;
+}
