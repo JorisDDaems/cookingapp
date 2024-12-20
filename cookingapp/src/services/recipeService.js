@@ -15,14 +15,14 @@ export const getAllRecipes = async () => {
           ...childSnapshot.val()
         });
       });
-      console.log('Retrieved recipes:', recipes);
+      console.log('Retrieved recipes:', recipes); // Log de recepten
       return recipes;
     }
-    console.log('No recipes found in database');
+    console.log('No recipes found in database'); // Log als er geen recepten zijn
     return [];
   } catch (error) {
     console.error('Error fetching recipes:', error);
-    throw error;
+    throw error; // Gooi de fout door
   }
 };
 
